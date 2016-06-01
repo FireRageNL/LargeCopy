@@ -13,17 +13,38 @@ namespace LargeCopies.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Kleding()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Accesoires()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult Broeken()
+        {
+            return View();
+        }
+
+        public ActionResult Schoenen()
+        {
+            return View();
+        }
+
+        public ActionResult Tops()
+        {
+            return View();
+        }
+
+        public ActionResult Figures()
+        {
+            return View();
+        }
+
+        public ActionResult Juwelen()
+        {
             return View();
         }
     }
