@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "db conn test";
+}
+
+<div class="jumbotron">
+    
+        @if ((bool)ViewData["dbcon"])
+        {
+            <p> it woorks</p>
+        }
+        else
+        {
+            <p>it does not work</p>
+        }
+
+</div>
+

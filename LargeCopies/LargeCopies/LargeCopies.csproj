@@ -244,6 +244,7 @@
     <Content Include="Views\Home\Tops.cshtml" />
     <Content Include="Views\Home\Figures.cshtml" />
     <Content Include="Views\Home\Juwelen.cshtml" />
+    <Content Include="Views\Home\dbtest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

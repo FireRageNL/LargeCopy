@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LargeCopies.Models;
 
 namespace LargeCopies.Controllers
 {
     public class HomeController : Controller
     {
+        public static db data = new db();
         public ActionResult Index()
         {
             return View();
@@ -45,6 +47,13 @@ namespace LargeCopies.Controllers
 
         public ActionResult Juwelen()
         {
+            return View();
+        }
+
+        public ActionResult dbtest()
+        {
+            bool test = data.dbtest();
+            ViewData["dbcon"] = test;
             return View();
         }
     }
