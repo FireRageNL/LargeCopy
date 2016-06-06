@@ -46,5 +46,10 @@ namespace LargeCopies.Models
                 return false;
             }
         }
+
+        public bool register(RegisterViewModel model)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
