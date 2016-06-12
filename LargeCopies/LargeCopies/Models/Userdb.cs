@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Remoting.Messaging;
 using System.Web.UI.WebControls;
 using Microsoft.Ajax.Utilities;
 using Oracle.ManagedDataAccess.Client;
@@ -17,7 +18,7 @@ namespace LargeCopies.Models
                 if (!model.NameConnector.IsNullOrWhiteSpace())
                 {
                     cmd.CommandText =
-                        "INSERT INTO GEBRUIKER(VOORNAAM,TUSSENVOEGSEL,ACHTERNAAM,EMAIL,WACHTWOORD,GESLACHT,TELEFOONUMMER) VALUES(:vn,:tv,:an,:em,:ww,:gs,:tn)";
+                        "INSERT INTO GEBRUIKER(VOORNAAM,TUSSENVOEGSEL,ACHTERNAAM,EMAIL,WACHTWOORD,GESLACHT,TELEFOONNUMMER) VALUES(:vn,:tv,:an,:em,:ww,:gs,:tn)";
                     cmd.Parameters.Add("vn", model.FirstName);
                     cmd.Parameters.Add("tv", model.NameConnector);
                     cmd.Parameters.Add("an", model.LastName);
@@ -29,7 +30,7 @@ namespace LargeCopies.Models
                 else
                 {
                     cmd.CommandText =
-                        "INSERT INTO GEBRUIKER(VOORNAAM,ACHTERNAAM,EMAIL,WACHTWOORD,GESLACHT,TELEFOONUMMER) VALUES(:vn,:an,:em,:ww,:gs,:tn)";
+                        "INSERT INTO GEBRUIKER(VOORNAAM,ACHTERNAAM,EMAIL,WACHTWOORD,GESLACHT,TELEFOONNUMMER) VALUES(:vn,:an,:em,:ww,:gs,:tn)";
                     cmd.Parameters.Add("vn", model.FirstName);
                     cmd.Parameters.Add("an", model.LastName);
                     cmd.Parameters.Add("em", model.Email);
@@ -38,7 +39,7 @@ namespace LargeCopies.Models
                     cmd.Parameters.Add("tn", model.Telephone);
                 }
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = "INSERT INTO ADRES(STRAAT,HUISNUMMER,POSTCODE,WOONPLAATS) VALUES(:st,:hn,:pc,:wp";
+                cmd.CommandText = "INSERT INTO ADRES(STRAAT,HUISNUMMER,POSTCODE,WOONPLAATS) VALUES(:st,:hn,:pc,:wp)";
                 cmd.Parameters.Add("st", model.Street);
                 cmd.Parameters.Add("hn", model.Number + "" + model.Addition);
                 cmd.Parameters.Add("pc", model.Zipcode);
@@ -67,7 +68,7 @@ namespace LargeCopies.Models
             try
             {
                 cmd.CommandText =
-                    "SELECT ADRESID FROM ADRES WHERE STRAAT = :st AND HUISNUMMER = :hn AND POSTCODE = :pc AND WOONPLAATs :wp";
+                    "SELECT ADRESID FROM ADRES WHERE STRAAT = :st AND HUISNUMMER = :hn AND POSTCODE = :pc AND WOONPLAATs = :wp";
                 cmd.Parameters.Add("st", model.Street);
                 cmd.Parameters.Add("hn", model.Number + "" + model.Addition);
                 cmd.Parameters.Add("pc", model.Zipcode);
@@ -98,6 +99,36 @@ namespace LargeCopies.Models
                 ret = dr.GetInt32(0);
                 return ret;
             }
+            catch (OracleException e)
+            {
+                Console.WriteLine("Oh noes error: " + e.Message);
+                conn.Close();
+                return 0;
+            }
+        }
+
+        public int LoginUser(LoginViewModel model)
+        {
+            int ret = 0;
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "SELECT COUNT(*) FROM GEBRUIKER WHERE email = :em AND wachtwoord = :ww";
+                cmd.Parameters.Add("em", model.Email);
+                cmd.Parameters.Add("ww", model.Password);
+                OracleDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                ret = dr.GetInt32(0);
+                if (ret == 1)
+                {
+                    ret = GetUserID(model.Email);
+                    conn.Close();
+                    return ret;
+                }
+                conn.Close();
+                return 0;
+            }
+            
             catch (OracleException e)
             {
                 Console.WriteLine("Oh noes error: " + e.Message);
