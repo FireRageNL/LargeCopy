@@ -48,10 +48,5 @@ namespace LargeCopies.Controllers
         {
             return View();
         }
-
-        public ActionResult dbtest()
-        {
-
-        }
     }
 }
