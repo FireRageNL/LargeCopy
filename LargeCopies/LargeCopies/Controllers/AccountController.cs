@@ -17,7 +17,7 @@ namespace LargeCopies.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private db _database = new db();
+        private Userdb _database = new Userdb();
 
         public AccountController()
         {
@@ -153,7 +153,7 @@ namespace LargeCopies.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool completed = _database.register(model);
+                bool completed = _database.Reguser(model);
             }
 
             // If we got this far, something failed, redisplay form
