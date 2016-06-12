@@ -9,7 +9,6 @@ namespace LargeCopies.Controllers
 {
     public class HomeController : Controller
     {
-        public static db data = new db();
         public ActionResult Index()
         {
             return View();
@@ -52,9 +51,7 @@ namespace LargeCopies.Controllers
 
         public ActionResult dbtest()
         {
-            bool test = data.dbtest();
-            ViewData["dbcon"] = test;
-            return View();
+
         }
     }
 }
