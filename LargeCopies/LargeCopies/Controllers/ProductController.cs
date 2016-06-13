@@ -13,7 +13,14 @@ namespace LargeCopies.Controllers
         // GET: Product/Create
         public ActionResult CreateProduct()
         {
-            return View();
+            if (Session.Count > 0)
+            {
+                if ((bool) Session["Admin"])
+                {
+                    return View();
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         // POST: Product/Create

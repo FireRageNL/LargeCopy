@@ -136,5 +136,33 @@ namespace LargeCopies.Models
                 return 0;
             }
         }
+
+        public bool IsAdmin(int userID)
+        {
+            try
+            {
+                conn.Open();
+                cmd.CommandText = "SELECT Admin FROM GEBRUIKER WHERE GEBRUIKERID = :userid";
+                cmd.Parameters.Add("userid", userID);
+                OracleDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                int isadmin = dr.GetInt32(0);
+                conn.Close();
+                if (isadmin == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (OracleException e)
+            {
+                Console.WriteLine("Oh noes oracle error: "+e.Message);
+                conn.Close();
+                return false;
+            }
+        }
     }
 }

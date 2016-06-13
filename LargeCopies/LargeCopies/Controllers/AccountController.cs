@@ -77,6 +77,7 @@ namespace LargeCopies.Controllers
                     Session["UserID"] = uid;
                     string[] split = model.Email.Split('@');
                     Session["Email"] = split[0];
+                    Session["Admin"] = _database.IsAdmin(uid);
                     return RedirectToAction("Index", "Home");
                 }
                 else
