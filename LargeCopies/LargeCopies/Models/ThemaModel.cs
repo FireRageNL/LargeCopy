@@ -1,6 +1,6 @@
 ﻿namespace LargeCopies.Models
 {
-    class ThemaModel
+    public class ThemaModel
     {
     }
 }
