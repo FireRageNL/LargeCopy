@@ -3,31 +3,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LargeCopies.Models;
 
 namespace LargeCopies.Controllers
 {
     public class ProductController : Controller
     {
+        private Productdb _database = new Productdb();
         // GET: Product/Create
-        public ActionResult Create()
+        public ActionResult CreateProduct()
         {
             return View();
         }
 
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CreateProduct(ProductModel model)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            bool added = _database.AddProduct(model);
 
-                return RedirectToAction("Index");
-            }
-            catch
+            if (added)
             {
-                return View();
+                return RedirectToAction("Index", "Home");
             }
+            else
+            {
+                return View(model);
+            }
+        }
+        public ActionResult Kleding()
+        {
+            return View();
+        }
+
+        public ActionResult Accesoires()
+        {
+            return View();
+        }
+
+        public ActionResult Broeken()
+        {
+            return View();
+        }
+
+        public ActionResult Schoenen()
+        {
+            return View();
+        }
+
+        public ActionResult Tops()
+        {
+            return View();
+        }
+
+        public ActionResult Figures()
+        {
+            return View();
+        }
+
+        public ActionResult Juwelen()
+        {
+            return View();
         }
     }
 }

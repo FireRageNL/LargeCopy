@@ -179,6 +179,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Productdb.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\db.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -240,16 +241,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Kleding.cshtml" />
-    <Content Include="Views\Home\Accesoires.cshtml" />
-    <Content Include="Views\Home\Schoenen.cshtml" />
-    <Content Include="Views\Home\Broeken.cshtml" />
-    <Content Include="Views\Home\Tops.cshtml" />
-    <Content Include="Views\Home\Figures.cshtml" />
-    <Content Include="Views\Home\Juwelen.cshtml" />
+    <Content Include="Views\Product\Kleding.cshtml" />
+    <Content Include="Views\Product\Accesoires.cshtml" />
+    <Content Include="Views\Product\Schoenen.cshtml" />
+    <Content Include="Views\Product\Broeken.cshtml" />
+    <Content Include="Views\Product\Tops.cshtml" />
+    <Content Include="Views\Product\Figures.cshtml" />
+    <Content Include="Views\Product\Juwelen.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\LogOff.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\CreateProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

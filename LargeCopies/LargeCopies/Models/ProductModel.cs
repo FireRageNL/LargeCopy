@@ -16,7 +16,14 @@ namespace LargeCopies.Models
         [Display(Name="Prijs")]
         public decimal Price { get; set; }
 
+        [Required]
         [Display(Name="Thema")]
-        public List<ThemaModel> Themes { get; set; }
+        public string Themes { get; set; }
+
+        [Display(Name="Thema 2")]
+        public string Themes2 { get; set; }
+
+        [Display(Name="Thema 3")]
+        public string Themes3 { get; set; }
     }
 }
