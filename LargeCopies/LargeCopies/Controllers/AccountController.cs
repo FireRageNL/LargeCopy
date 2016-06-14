@@ -373,8 +373,7 @@ namespace LargeCopies.Controllers
         }
 
         //
-        // POST: /Account/LogOff
-        [HttpPost]
+        // GET: /Account/LogOff
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
