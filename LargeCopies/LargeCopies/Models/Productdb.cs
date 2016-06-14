@@ -6,5 +6,10 @@
         {
             return true;
         }
+
+        public bool AddTheme(ProductModel model)
+        {
+            return false;
+        }
     }
 }

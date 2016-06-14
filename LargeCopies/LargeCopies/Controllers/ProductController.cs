@@ -10,7 +10,6 @@ namespace LargeCopies.Controllers
     public class ProductController : Controller
     {
         private Productdb _database = new Productdb();
-        // GET: Product/Create
         public ActionResult CreateProduct()
         {
             if (Session.Count > 0)
@@ -23,12 +22,38 @@ namespace LargeCopies.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // POST: Product/Create
         [HttpPost]
         public ActionResult CreateProduct(ProductModel model)
         {
             bool added = _database.AddProduct(model);
 
+            if (added)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View(model);
+            }
+        }
+
+        public ActionResult CreateTheme()
+        {
+            if (Session.Count > 0)
+            {
+                if ((bool)Session["Admin"])
+                {
+                    return View();
+                }
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult CreateThemet(ProductModel model)
+        {
+            bool added = _database.AddTheme(model);
+        
             if (added)
             {
                 return RedirectToAction("Index", "Home");

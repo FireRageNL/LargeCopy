@@ -251,6 +251,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\LogOff.cshtml" />
     <Content Include="Views\Product\CreateProduct.cshtml" />
+    <Content Include="Views\Product\CreateTheme.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
