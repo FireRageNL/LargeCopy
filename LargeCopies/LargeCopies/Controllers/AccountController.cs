@@ -377,7 +377,9 @@ namespace LargeCopies.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            Session.RemoveAll();
+            Session["UserID"] = null;
+            Session["Admin"] = null;
+            Session["Email"] = null;
             return RedirectToAction("Index", "Home");
         }
 

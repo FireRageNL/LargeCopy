@@ -10,9 +10,10 @@ namespace LargeCopies.Controllers
     public class ProductController : Controller
     {
         private Productdb _database = new Productdb();
+        private Themedb _themedb = new Themedb();
         public ActionResult CreateProduct()
         {
-            if (Session.Count > 0)
+            if (Session["Admin"] != null)
             {
                 if ((bool) Session["Admin"])
                 {
@@ -39,7 +40,7 @@ namespace LargeCopies.Controllers
 
         public ActionResult CreateTheme()
         {
-            if (Session.Count > 0)
+            if (Session["Admin"] != null)
             {
                 if ((bool)Session["Admin"])
                 {
@@ -50,9 +51,9 @@ namespace LargeCopies.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateThemet(ProductModel model)
+        public ActionResult CreateTheme(ThemaModel model)
         {
-            bool added = _database.AddTheme(model);
+            bool added = _themedb.AddTheme(model);
         
             if (added)
             {

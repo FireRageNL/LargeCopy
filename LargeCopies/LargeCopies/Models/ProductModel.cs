@@ -9,11 +9,16 @@ namespace LargeCopies.Models
         [Display(Name="Productnaam")]
         public string Productname { get; set; }
 
-        [Display(Name="Maat")]
-        public string Productsize { get; set; }
+        [Display(Name ="Omschrijving")]
+        [DataType(DataType.MultilineText)]
+        public string Description { get; set; }
+
+        [Display(Name = "Kleur")]
+        public string Color { get; set; }
 
         [Required]
         [Display(Name="Prijs")]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
         [Required]

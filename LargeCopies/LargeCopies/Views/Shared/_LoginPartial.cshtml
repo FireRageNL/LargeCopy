@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Session.Count > 0)
+@if (Session["Email"] != null)
 {
     @Html.AntiForgeryToken()
 

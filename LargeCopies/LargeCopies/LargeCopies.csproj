@@ -185,6 +185,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ThemaModel.cs" />
+    <Compile Include="Models\Themedb.cs" />
     <Compile Include="Models\Userdb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -249,9 +250,8 @@
     <Content Include="Views\Product\Figures.cshtml" />
     <Content Include="Views\Product\Juwelen.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\LogOff.cshtml" />
-    <Content Include="Views\Product\CreateProduct.cshtml" />
     <Content Include="Views\Product\CreateTheme.cshtml" />
+    <Content Include="Views\Product\CreateProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
