@@ -1,7 +1,42 @@
-﻿@{
-    ViewBag.Title = "Alle kleding";
+﻿@model IEnumerable<LargeCopies.Models.ProductModel>
+
+@{
+    ViewBag.Title = "Kleding";
 }
 
-<div class="jumbotron">
-    <p>Omg hier staat alle kleding!!!!11!</p>
-</div>
+<h2>Kleding</h2>
+
+<p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Productname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Productname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "KledingDetails", new {id=item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>

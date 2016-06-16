@@ -13,5 +13,12 @@ namespace LargeCopies.Controllers
         {
             return View();
         }
+        public ActionResult LogOff()
+        {
+            Session["UserID"] = null;
+            Session["Admin"] = null;
+            Session["Email"] = null;
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

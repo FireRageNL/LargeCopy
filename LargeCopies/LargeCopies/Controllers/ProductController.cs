@@ -66,9 +66,15 @@ namespace LargeCopies.Controllers
         }
         public ActionResult Kleding()
         {
-            return View();
+            List<ProductModel> model = _database.FetchProducts("Kleding");
+            return View(model);
         }
 
+        public ActionResult KledingDetails(int id)
+        {
+            ProductModel details = _database.GetProductDetails(id);
+            return View(details);
+        }
         public ActionResult Accesoires()
         {
             return View();

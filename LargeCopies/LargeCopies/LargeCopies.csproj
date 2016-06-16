@@ -252,6 +252,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Product\CreateTheme.cshtml" />
     <Content Include="Views\Product\CreateProduct.cshtml" />
+    <Content Include="Views\Product\KledingDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

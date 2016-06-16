@@ -30,5 +30,7 @@ namespace LargeCopies.Models
 
         [Display(Name="Thema 3")]
         public string Themes3 { get; set; }
+
+        public int ProductID { get; set; }
     }
 }

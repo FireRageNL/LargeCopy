@@ -26,18 +26,19 @@ namespace LargeCopies.Models
                     {
                         themaid = dr.GetInt32(0);
                     }
-                    cmd.CommandText = "INSERT INTO THEMA(OMSCHRIJVING,CATEGORIE,NAAM) VALUES(:oms,:cat,:nme)";
+                    cmd.CommandText = "INSERT INTO THEMA(OMSCHRIJVING,CATEGORIE,NAAM) VALUES(:oms,:cat,:name)";
                     cmd.Parameters.Add("oms", model.Desc);
-                    cmd.Parameters.Add("nme", model.Name);
                     cmd.Parameters.Add("cat", themaid);
+                    cmd.Parameters.Add("name", model.Name);                   
+                    cmd.ExecuteNonQuery();
                 }
                 else
                 {
                     cmd.CommandText = "INSERT INTO THEMA(OMSCHRIJVING,NAAM) VALUES(:oms,:nme)";
                     cmd.Parameters.Add("oms", model.Desc);
                     cmd.Parameters.Add("nme", model.Name);
+                    cmd.ExecuteNonQuery();
                 }
-                cmd.ExecuteNonQuery();
                 conn.Close();
                 return true;
             }
